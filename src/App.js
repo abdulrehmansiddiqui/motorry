@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch, BrowserRouter as Router, } from "react-router-dom";
+import Login from "./Screens/Login";
+import Start from "./Screens/Start";
+import { connect } from "react-redux";
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  render() {
+    return (
+      <React.Fragment>
+        <Router>
+          <TransitionGroup>
+            <CSSTransition
+              key={Math.random()}
+              timeout={500}
+              classNames="fade"
+            >
+              <Switch>
+                <Route path="/Start" component={Start} />
+                <Route path="/Login" component={Login} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </Router>
+      </React.Fragment >
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth.auth,
+  }
+}
+
+
+export default connect(mapStateToProps)(App)
