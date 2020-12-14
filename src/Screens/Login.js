@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import API from "../Constants/API";
-import Global from "../Constants/Global";
 import { connect } from "react-redux";
 import { auth } from "../Redux/actions/auth";
-import { get_personal } from "../Redux/actions/user";
 
 class Login extends Component {
   constructor() {
@@ -69,8 +66,7 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateAuth: (data) => { dispatch(auth(data)) },
-    getUser: () => { dispatch(get_personal()) }
+    // getUser: () => { dispatch(get_personal()) }
   }
 }
 export default connect(null, mapDispatchToProps)(Login)

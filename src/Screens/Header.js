@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { get_personal } from "../Redux/actions/user";
 
 
 class header extends Component {
@@ -34,7 +33,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUser: () => { dispatch(get_personal()) }
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(header)
