@@ -6592,7 +6592,7 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: rgb(233, 233, 233,0.8) !important;
+  background-color: #FFF !important;
 }
 
 .bg-transparent {
@@ -6671,12 +6671,20 @@ button.bg-dark:focus {
   border-color: #343a40 !important;
 }
 
+.border-grey {
+  border-color: #999999 !important;
+}
+
 .border-white {
   border-color: #fff !important;
 }
 
 .rounded-sm {
   border-radius: 0.2rem !important;
+}
+
+.rounded-md {
+  border-radius: 0.45rem !important;
 }
 
 .rounded {

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch, BrowserRouter as Router, } from "react-router-dom";
+import Navigation from "./Routes/Navigation";
 import Login from "./Screens/Login";
 import Start from "./Screens/Start";
+import Dashboard from "./Screens/Dashboard";
+import Form from "./Screens/Form";
 import { connect } from "react-redux";
 import {
   CSSTransition,
@@ -10,6 +13,16 @@ import {
 
 
 class App extends Component {
+  state = {
+    splash: true,
+    auth: false
+  };
+
+  async componentDidMount() {
+    setTimeout(() => {
+      this.setState({ splash: false })
+    }, 5000)
+  }
 
   render() {
     return (
@@ -22,8 +35,13 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route path="/Start" component={Start} />
+                {this.state.splash ?
+                  <Route path="/" component={Start} />
+                  : null
+                }
                 <Route path="/Login" component={Login} />
+                <Route path="/Dashboard" component={Dashboard} />
+                <Route path="/Form" component={Form} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

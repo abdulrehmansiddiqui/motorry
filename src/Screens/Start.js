@@ -8,6 +8,11 @@ class Start extends Component {
     };
   }
 
+  async componentDidMount() {
+    setTimeout(() => {
+      this.props.history.push("Login") 
+    }, 5000)
+  }
 
   render() {
 

@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   Loginfunction = () => {
-    this.props.history.push("Start")
+    this.props.history.push("Dashboard")
   };
 
 
