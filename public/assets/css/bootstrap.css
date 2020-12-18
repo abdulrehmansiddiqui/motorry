@@ -6615,6 +6615,11 @@ button.bg-dark:focus {
   border-bottom: 1px solid #dee2e6 !important;
 }
 
+.border-bottom-black {
+  border-bottom: 1px solid #000 !important;
+}
+
+
 .border-left {
   border-left: 1px solid #dee2e6 !important;
 }
@@ -6677,6 +6682,9 @@ button.bg-dark:focus {
 
 .border-white {
   border-color: #fff !important;
+}
+.border-black {
+  border: solid 1px #000 !important;
 }
 
 .rounded-sm {

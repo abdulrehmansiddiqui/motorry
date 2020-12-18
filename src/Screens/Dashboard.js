@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import Make from "../Components/Make";
+import Model from "../Components/Model";
 
 function Dashboard(props) {
 
@@ -9,6 +11,8 @@ function Dashboard(props) {
 
   const [make, setmake] = useState('')
   const [Keyword_Search, setKeyword_Search] = useState('')
+  const [MakeStatus, setMakeStatus] = useState(false)
+  const [ModelStatus, setModelStatus] = useState(false)
 
 
   const Searchfunction = () => {
@@ -18,6 +22,20 @@ function Dashboard(props) {
 
   return (
     <div className="animate__animated animate__fadeIn">
+
+      {MakeStatus
+        ? <Make
+          close={() => { setMakeStatus(!MakeStatus) }}
+        />
+        : null}
+
+      {ModelStatus
+        ? <Model
+          close={() => { setModelStatus(!ModelStatus) }}
+        />
+        : null}
+
+
       <div className="menu">
         <div className="menubg">
           <div className="row flex-row-reverse">
@@ -33,13 +51,13 @@ function Dashboard(props) {
 
           <div className="row mb-4">
             <div className="col-md-4">
-            <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Select Make</button>
+              <button onClick={() => { setMakeStatus(!MakeStatus) }} className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Select Make</button>
               {/* <input onChange={val => { setmake(val.target.value) }}
                 value={make} placeholder="Select Make" type="text" className="form-control rounded-md border-grey" required
               /> */}
             </div>
             <div className="col-md-4">
-            <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Select Model</button>
+              <button onClick={() => { setModelStatus(!MakeStatus) }} className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Select Model</button>
               {/* <input onChange={val => { setmake(val.target.value) }}
                 value={make} placeholder="Select Model" type="text" className="form-control rounded-md border-grey" required
               /> */}
@@ -53,13 +71,13 @@ function Dashboard(props) {
 
           <div className="row mb-4">
             <div className="col-md-4">
-            <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Location</button>
+              <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Location</button>
               {/* <input onChange={val => { setmake(val.target.value) }}
                 value={make} placeholder="Location" type="text" className="form-control rounded-md border-grey" required
               /> */}
             </div>
             <div className="col-md-4">
-            <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Condition</button>
+              <button className="btn btn-white btn-block border-grey pr-2 pl-2 rounded-md ">Condition</button>
               {/* <input onChange={val => { setmake(val.target.value) }}
                 value={make} placeholder="Condition" type="text" className="form-control rounded-md border-grey" required
               /> */}
@@ -76,7 +94,7 @@ function Dashboard(props) {
               />
             </div>
             <div className="col-md-4">
-              <button  onClick={Searchfunction.bind(this)}  className="btn btn-dark btn-block p-2 rounded-md ">SEARCH VEHICLE</button>
+              <button onClick={Searchfunction.bind(this)} className="btn btn-dark btn-block p-2 rounded-md ">SEARCH VEHICLE</button>
             </div>
           </div>
 
@@ -154,9 +172,6 @@ function Dashboard(props) {
 
 
       </div>
-
-
-
 
 
 
